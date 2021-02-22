@@ -10,18 +10,21 @@ const initialValue = {
     zip: "",
   };
 
-export const useForm = (key, initialValue) => {
- const [value, setValues] = useState(initialValue);
+const useForm = (key, initialValue) => {
 
- const handleChanges = (event) => {
-     console.log(event);
-    setValues({ ...value, [event.target.name]: event.target.value });
+
+    const [firstName, setValues] = useState("");
+
+    const handleChanges = (event) => {
+    setValues(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+    const handleSubmit = (event) => {
     event.preventDefault();
-    setShowSuccessMessage(true);
+    alert(firstName);
+    console.log("Success");
   };
     
- return [value, handleChanges, handleSubmit];
+        return [firstName, handleChanges, handleSubmit];
 }
+ export default useForm;
