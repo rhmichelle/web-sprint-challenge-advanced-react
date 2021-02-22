@@ -18,4 +18,8 @@ test("form header renders", () => {
 // Assert
 });
 
-// test("form shows success message on submit with form details", () => {});
+test("form shows success message on submit with form details", () => {
+    render(<CheckoutForm />)
+    const successMessage = screen.findByText("You have ordered some plants!")
+    console.log(successMessage);
+});
