@@ -3,13 +3,26 @@ import React, { Component } from "react";
 export default class PlantList extends Component {
   constructor () {
     super();
+    this.state = {
+      plants: []
+    } 
     // add state with a property called "plants" - initialize as an empty array
+  }
 
-  
+
 
   // when the component mounts:
   //   - fetch data from the server endpoint - http://localhost:3333/plants
   //   - set the returned plants array to this.state.plants
+  componentDidMount() {
+    fetch("http://localhost:3333/plants")
+      .then(response => response.json())
+      .then(response => this.setState({
+        plants: response.plantsData
+      }))
+    }
+
+
 
   /*********  DON'T CHANGE ANYTHING IN THE RENDER FUNCTION *********/
   render() {
