@@ -16,20 +16,9 @@ const initialValue = {
 
 
 const CheckoutForm = (props) => {
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  const [values, handleChanges, handleSubmit] = useForm(initialValue);
+  const [values, handleChanges, handleSubmit, showSuccessMessage] = useForm(initialValue);
 
-  // const [values, setValues] = useState(initialValue);
-
-  // const handleChanges = (e) => {
-  //   setValues({ ...values, [e.target.name]: e.target.value });
-  // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setShowSuccessMessage(true);
-  // };
 
   return (
     <>
@@ -43,7 +32,7 @@ const CheckoutForm = (props) => {
             onChange={handleChanges}
           />
         </label>
-        {/* <label>
+        <label>
           Last Name:
           <input
             name="lastName"
@@ -70,11 +59,11 @@ const CheckoutForm = (props) => {
         <label>
           Zip:
           <input name="zip" value={values.zip} onChange={handleChanges} />
-        </label> */
+        </label>
         <button>Checkout</button>}
       </form>
 
-      {/* {showSuccessMessage && (
+      {showSuccessMessage && (
         <div className="success-message" data-testid="successMessage">
           <p>
             You have ordered some plants! Woo-hoo! <span role="img">🎉</span>
@@ -90,7 +79,7 @@ const CheckoutForm = (props) => {
             {values.city}, {values.state} {values.zip}
           </p>
         </div>
-      )} */}
+      )}
     </>
   );
 };
